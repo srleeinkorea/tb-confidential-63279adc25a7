@@ -2,7 +2,8 @@
 # 빌드: python tools/vault_build.py  (평문은 git 제외, vault/만 커밋)
 
 # ── 내부 검토 산출물 ──
-docs/internal/261015_TB_협회미팅_설득자료_v4.html | 협회 미팅 설득자료 v4 (2026-10-15, 판독 라벨 검토 보완) | 내부 검토
+docs/internal/261015_TB_협회미팅_설득자료_v5.html | 협회 미팅 설득자료 v5 (기허가 제품 레퍼런스·참조표준 쟁점 보완) | 내부 검토
+docs/internal/261015_TB_협회미팅_설득자료_v4.html | 협회 미팅 설득자료 v4 (판독 라벨 검토 보완) | 내부 검토
 docs/internal/261015_TB_협회미팅_설득자료_v3.html | 협회 미팅 설득자료 v3 | 내부 검토
 docs/internal/261015_TB_협회미팅_설득자료_v2.html | 협회 미팅 설득자료 v2 | 내부 검토
 docs/internal/261015_TB_협회미팅_설득자료_v1.html | 협회 미팅 설득자료 v1 | 내부 검토
