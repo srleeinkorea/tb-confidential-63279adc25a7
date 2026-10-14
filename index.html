@@ -2,194 +2,182 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>TB 공동연구 기밀 문서함</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#fbfbfd; --fg:#1b1d24; --muted:#6b6f7c; --line:#e6e7ee; --point:#5170FF; --card:#fff; --danger:#c0392b; }
-  * { box-sizing:border-box; }
-  html,body { margin:0; height:100%; }
-  body { background:var(--bg); color:var(--fg); font-family:"DM Sans","Noto Sans KR",sans-serif; font-size:15px; line-height:1.6; }
-  h1,h2 { font-family:"DM Serif Display","Noto Sans KR",serif; font-weight:400; margin:0; }
-  a { color:var(--point); }
-  button { font:inherit; cursor:pointer; border:1px solid var(--line); background:#fff; color:var(--fg); border-radius:8px; padding:8px 14px; }
-  button.primary { background:var(--point); color:#fff; border-color:var(--point); }
-  button:disabled { opacity:.5; cursor:default; }
-  input[type=password] { font:inherit; width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
-  input:focus { outline:2px solid var(--point); outline-offset:1px; }
-
-  /* 로그인 */
-  #gate { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; padding:16px; background:var(--bg); }
-  #gate form { width:100%; max-width:380px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:28px 24px; }
-  #gate h1 { font-size:26px; margin-bottom:4px; }
-  #gate p { color:var(--muted); margin:0 0 18px; font-size:14px; }
-  #gate .row { display:flex; gap:8px; margin-top:12px; }
-  #gate .row button { flex:1; }
-  .err { color:var(--danger); font-size:13px; min-height:20px; margin-top:8px; }
-  .eyebrow { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--point); font-weight:600; }
-
-  /* 본문 */
-  #app { display:none; min-height:100%; }
-  #app.on { display:grid; grid-template-columns:320px 1fr; grid-template-rows:56px 1fr; }
-  header { grid-column:1/3; display:flex; align-items:center; gap:14px; padding:0 20px; border-bottom:1px solid var(--line); background:#fff; }
-  header h1 { font-size:20px; }
-  header .meta { color:var(--muted); font-size:13px; margin-left:auto; }
-  nav { border-right:1px solid var(--line); overflow:auto; padding:14px 0; background:#fff; }
-  nav h2 { font-size:12px; font-family:"DM Sans","Noto Sans KR",sans-serif; font-weight:600; color:var(--muted); letter-spacing:.06em; padding:12px 20px 4px; }
-  nav button.item { display:block; width:100%; text-align:left; border:0; border-radius:0; background:none; padding:8px 20px; line-height:1.4; }
-  nav button.item:hover { background:#f2f4ff; }
-  nav button.item.active { background:#eaeeff; color:var(--point); }
-  nav .name { display:block; font-size:12px; color:var(--muted); }
-  main { position:relative; overflow:hidden; }
-  main iframe { width:100%; height:100%; border:0; background:#fff; }
-  #empty, #dl { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--muted); gap:12px; padding:24px; text-align:center; }
-  #dl { display:none; }
-  #dl b { color:var(--fg); }
-  #busy { position:absolute; top:0; left:0; right:0; height:3px; background:var(--point); display:none; animation:bar 1s linear infinite; }
-  @keyframes bar { from{transform:scaleX(.1);transform-origin:left} 50%{transform:scaleX(1)} to{transform:scaleX(.1);transform-origin:right} }
-  .md { max-width:860px; margin:0 auto; padding:32px 24px; }
-
-  @media (max-width:800px) {
-    #app.on { grid-template-columns:1fr; grid-template-rows:56px auto 1fr; }
-    nav { border-right:0; border-bottom:1px solid var(--line); max-height:40vh; }
-  }
+:root{--bg:#f1f5f9;--side:#0f172a;--side-2:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--accent:#6366f1}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg)}
+body{display:flex;height:100dvh;overflow:hidden}
+nav{flex:0 0 240px;background:var(--side);color:var(--text);display:flex;flex-direction:column;padding:18px 12px;gap:4px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 18px}
+.logo{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#4338ca,#0891b2);display:grid;place-items:center;font-weight:800;font-size:12px;color:#fff}
+.brand b{font-size:14px}.brand small{display:block;font-size:10px;color:var(--muted)}
+.sec{font-size:10px;color:var(--muted);letter-spacing:.06em;padding:12px 10px 6px}
+nav button.item{display:block;width:100%;text-align:left;font:inherit;color:var(--text);background:none;border:0;padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;cursor:pointer}
+nav button.item:hover{background:var(--side-2)}
+nav button.item.active{background:var(--accent);color:#fff;font-weight:700}
+nav button.item .name{display:block;font-size:10px;color:var(--muted);font-weight:400}
+nav button.item.active .name{color:#e0e7ff}
+.tools{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding:8px 4px}
+.tools button{font:inherit;font-size:12px;font-weight:700;border:1px solid #334155;background:var(--side-2);color:var(--text);border-radius:8px;padding:8px 10px;cursor:pointer;text-align:left}
+.tools button:hover{border-color:var(--muted)}
+.tools .who{font-size:10px;color:var(--muted);padding:0 4px;line-height:1.5}
+main{flex:1;min-width:0;display:flex;flex-direction:column;position:relative}
+iframe{flex:1;border:0;width:100%;min-height:0;background:#fff}
+#busy{position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);display:none;animation:bar 1s linear infinite}
+@keyframes bar{from{transform:scaleX(.1);transform-origin:left}50%{transform:scaleX(1)}to{transform:scaleX(.1);transform-origin:right}}
+#empty,#dl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:#475569;font-size:13px;background:var(--bg)}
+#dl{display:none}#dl b{color:#0f172a;font-size:15px}
+#dl button{font:inherit;font-size:12px;font-weight:700;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:8px 14px;cursor:pointer}
+dialog{margin:auto;border:0;border-radius:14px;padding:22px;width:min(440px,calc(100% - 32px));box-shadow:0 20px 50px rgba(15,23,42,.3);color:#0f172a}
+dialog::backdrop{background:rgba(15,23,42,.6)}
+dialog h2{font-size:16px;margin-bottom:6px}
+dialog p{font-size:12px;color:#475569;line-height:1.7;margin-bottom:12px}
+dialog input{width:100%;font:13px Consolas,monospace;padding:10px;border:1px solid #cbd5e1;border-radius:8px}
+dialog .row{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+dialog button{font:inherit;font-size:12px;font-weight:700;border:1px solid #cbd5e1;background:#fff;border-radius:8px;padding:8px 14px;cursor:pointer}
+dialog button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+dialog button:disabled{opacity:.5}
+dialog .err{color:#b91c1c;font-size:12px;margin-top:8px;min-height:1em}
+body:not(.open) nav,body:not(.open) main{visibility:hidden}
+@media(max-width:760px){
+ body{flex-direction:column}
+ nav{flex:none;flex-direction:row;align-items:center;padding:8px;gap:4px;overflow-x:auto}
+ .brand{padding:0 8px 0 4px}.brand div,.sec,.tools .who{display:none}
+ #items{display:flex;align-items:center;gap:4px}
+ nav button.item{white-space:nowrap;padding:7px 10px;width:auto}nav button.item .name{display:none}
+ .tools{margin:0 0 0 auto;flex-direction:row;padding:0}
+}
 </style>
 </head>
 <body>
+<dialog id="login">
+ <form method="dialog" id="login-form">
+  <h2>🔒 TB 공동연구 기밀 문서함</h2>
+  <p>대한결핵협회 × 마이허브 공동연구 내부 문서입니다. 문서는 암호화되어 있으며 비밀번호로 이 브라우저 안에서만 복호화됩니다.</p>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="비밀번호" aria-label="비밀번호" autofocus>
+  <div class="err" id="err" role="alert"></div>
+  <div class="row"><button type="submit" class="primary" id="go">열기</button></div>
+ </form>
+</dialog>
 
-<div id="gate">
-  <form id="login">
-    <div class="eyebrow">Confidential</div>
-    <h1>TB 공동연구 기밀 문서함</h1>
-    <p>대한결핵협회 × 마이허브 공동연구 내부 문서입니다. 문서는 암호화되어 있으며 비밀번호로 이 브라우저 안에서만 복호화됩니다.</p>
-    <input id="pw" type="password" autocomplete="current-password" placeholder="비밀번호" aria-label="비밀번호" autofocus>
-    <div class="err" id="err" role="alert"></div>
-    <div class="row"><button type="submit" class="primary" id="go">열기</button></div>
-  </form>
-</div>
-
-<div id="app">
-  <header>
-    <h1>TB 공동연구 기밀 문서함</h1>
-    <span class="meta" id="meta"></span>
-    <button id="logout">닫기</button>
-  </header>
-  <nav id="list"></nav>
-  <main>
-    <div id="busy"></div>
-    <div id="empty">왼쪽 목록에서 문서를 선택하세요.</div>
-    <div id="dl"><b id="dl-title"></b><span id="dl-info"></span><a id="dl-link"><button class="primary">내려받기</button></a></div>
-    <iframe id="view" title="문서" sandbox="allow-same-origin allow-scripts allow-popups allow-downloads" hidden></iframe>
-  </main>
-</div>
+<nav aria-label="문서 목록" id="list">
+ <div class="brand"><span class="logo">TB</span><div><b>기밀 문서함</b><small>대한결핵협회 × 마이허브</small></div></div>
+ <div id="items"></div>
+ <div class="tools">
+  <span class="who" id="meta"></span>
+  <button id="logout">🔒 닫기</button>
+ </div>
+</nav>
+<main>
+ <div id="busy"></div>
+ <div id="empty">왼쪽 목록에서 문서를 선택하세요.</div>
+ <div id="dl"><b id="dl-title"></b><span id="dl-info"></span><a id="dl-link"><button>💾 내려받기</button></a></div>
+ <iframe id="view" title="문서 보기" sandbox="allow-same-origin allow-scripts allow-popups allow-downloads"></iframe>
+</main>
 
 <script>
-const $ = id => document.getElementById(id);
-const enc = new TextEncoder(), dec = new TextDecoder();
-let key = null, items = [], blobUrl = null;
+const $=id=>document.getElementById(id);
+const enc=new TextEncoder(),dec=new TextDecoder();
+let key=null,items=[],blobUrl=null;
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const ICON={'.html':'📄','.md':'📝','.pdf':'📕','.pptx':'📊','.xlsx':'📈','.docx':'📘','.hwp':'📘','.hwpx':'📘'};
 
-const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
-
-async function deriveKey(pw, salt, iter) {
-  const base = await crypto.subtle.importKey('raw', enc.encode(pw), 'PBKDF2', false, ['deriveKey']);
-  return crypto.subtle.deriveKey({ name:'PBKDF2', salt, iterations:iter, hash:'SHA-256' }, base,
-    { name:'AES-GCM', length:256 }, false, ['decrypt']);
+async function deriveKey(pw,salt,iter){
+  const base=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
 }
-async function openBin(path, aad) {
-  const r = await fetch(path, { cache:'no-store' });
-  if (!r.ok) throw new Error('파일을 불러오지 못했습니다: ' + path);
-  const buf = new Uint8Array(await r.arrayBuffer());
-  return crypto.subtle.decrypt({ name:'AES-GCM', iv:buf.slice(0,12), additionalData:enc.encode(aad) }, key, buf.slice(12));
+async function openBin(path,aad){
+  const r=await fetch(path,{cache:'no-store'});
+  if(!r.ok)throw new Error('파일을 불러오지 못했습니다: '+path);
+  const buf=new Uint8Array(await r.arrayBuffer());
+  return crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(0,12),additionalData:enc.encode(aad)},key,buf.slice(12));
 }
 
-$('login').onsubmit = async e => {
-  e.preventDefault();
-  $('err').textContent = ''; $('go').disabled = true;
-  try {
-    const p = await (await fetch('vault/params.json', { cache:'no-store' })).json();
-    key = await deriveKey($('pw').value, b64(p.salt), p.iter);
+$('login').showModal();
+$('login').addEventListener('cancel',e=>e.preventDefault());
+$('login-form').onsubmit=async e=>{
+  e.preventDefault();$('err').textContent='';$('go').disabled=true;
+  try{
+    const p=await (await fetch('vault/params.json',{cache:'no-store'})).json();
+    key=await deriveKey($('pw').value,b64(p.salt),p.iter);
     let m;
-    try { m = JSON.parse(dec.decode(await openBin('vault/manifest.bin', 'manifest'))); }
-    catch { key = null; throw new Error('비밀번호가 올바르지 않습니다.'); }
-    items = m.items;
-    $('meta').textContent = `${items.length}건 · 갱신 ${m.built}`;
-    render();
-    $('pw').value = '';
-    $('gate').style.display = 'none'; $('app').classList.add('on');
-  } catch (err) { $('err').textContent = err.message; }
-  finally { $('go').disabled = false; }
+    try{m=JSON.parse(dec.decode(await openBin('vault/manifest.bin','manifest')));}
+    catch{key=null;throw new Error('비밀번호가 올바르지 않습니다.');}
+    items=m.items;
+    $('meta').textContent=`${items.length}건 · 갱신 ${m.built}`;
+    render();$('pw').value='';
+    $('login').close();document.body.classList.add('open');
+  }catch(err){$('err').textContent=err.message;}
+  finally{$('go').disabled=false;}
 };
+$('logout').onclick=()=>location.reload();
 
-$('logout').onclick = () => location.reload();
-
-function render() {
-  const groups = {};
-  items.forEach(it => (groups[it.category] ??= []).push(it));
-  const nav = $('list'); nav.innerHTML = '';
-  for (const [cat, list] of Object.entries(groups)) {
-    const h = document.createElement('h2'); h.textContent = cat; nav.appendChild(h);
-    for (const it of list) {
-      const b = document.createElement('button'); b.className = 'item'; b.dataset.id = it.id;
-      b.innerHTML = `${esc(it.title)}<span class="name">${esc(it.name)} · ${fmt(it.size)}</span>`;
-      b.onclick = () => open(it, b);
-      nav.appendChild(b);
+function render(){
+  const groups={};
+  items.forEach(it=>(groups[it.category]??=[]).push(it));
+  const box=$('items');box.innerHTML='';
+  for(const [cat,list] of Object.entries(groups)){
+    const h=document.createElement('span');h.className='sec';h.textContent=cat;box.appendChild(h);
+    for(const it of list){
+      const b=document.createElement('button');b.className='item';b.type='button';
+      b.innerHTML=`${ICON[it.ext]||'📎'} ${esc(it.title)}<span class="name">${esc(it.name)} · ${fmt(it.size)}</span>`;
+      b.onclick=()=>open(it,b);box.appendChild(b);
     }
   }
 }
 
-async function open(it, btn) {
-  document.querySelectorAll('nav .item').forEach(x => x.classList.toggle('active', x === btn));
-  $('busy').style.display = 'block';
-  try {
-    const plain = await openBin(`vault/${it.id}.bin`, it.id);
-    if (blobUrl) URL.revokeObjectURL(blobUrl);
-    const view = $('view'), dl = $('dl');
-    $('empty').style.display = 'none';
-    if (it.ext === '.html' || it.ext === '.pdf') {
-      blobUrl = URL.createObjectURL(new Blob([plain], { type: it.ext === '.pdf' ? 'application/pdf' : 'text/html' }));
-      dl.style.display = 'none'; view.hidden = false; view.src = blobUrl;
-    } else if (it.ext === '.md') {
-      const html = `<!doctype html><meta charset="utf-8"><style>body{font-family:"DM Sans","Noto Sans KR",sans-serif;color:#1b1d24;line-height:1.7}table{border-collapse:collapse;margin:12px 0}td,th{border:1px solid #e6e7ee;padding:6px 10px;font-size:14px}th{background:#f4f5fa}blockquote{border-left:3px solid #5170FF;margin:0;padding:4px 14px;color:#555}h1,h2,h3{font-family:"DM Serif Display","Noto Sans KR",serif;font-weight:400}</style><div class="md">${md(dec.decode(plain))}</div>`;
-      blobUrl = URL.createObjectURL(new Blob([html], { type:'text/html' }));
-      dl.style.display = 'none'; view.hidden = false; view.src = blobUrl;
-    } else {
-      blobUrl = URL.createObjectURL(new Blob([plain], { type: it.mime }));
-      view.hidden = true; view.src = 'about:blank';
-      $('dl-title').textContent = it.title; $('dl-info').textContent = `${it.name} · ${fmt(it.size)} · 브라우저에서 바로 볼 수 없는 형식입니다.`;
-      const a = $('dl-link'); a.href = blobUrl; a.download = it.name;
-      dl.style.display = 'flex';
+async function open(it,btn){
+  document.querySelectorAll('nav .item').forEach(x=>x.classList.toggle('active',x===btn));
+  $('busy').style.display='block';
+  try{
+    const plain=await openBin(`vault/${it.id}.bin`,it.id);
+    if(blobUrl)URL.revokeObjectURL(blobUrl);
+    const view=$('view'),dl=$('dl');$('empty').style.display='none';
+    if(it.ext==='.html'||it.ext==='.pdf'){
+      blobUrl=URL.createObjectURL(new Blob([plain],{type:it.ext==='.pdf'?'application/pdf':'text/html'}));
+      dl.style.display='none';view.src=blobUrl;
+    }else if(it.ext==='.md'){
+      const html=`<!doctype html><meta charset="utf-8"><style>body{font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;color:#0f172a;line-height:1.75;max-width:860px;margin:0 auto;padding:32px 24px;font-size:14px}table{border-collapse:collapse;margin:12px 0;width:100%}td,th{border:1px solid #e2e8f0;padding:6px 10px;font-size:13px;vertical-align:top}th{background:#f1f5f9;text-align:left}blockquote{border-left:3px solid #6366f1;margin:12px 0;padding:4px 14px;color:#475569;background:#f8fafc}h1{font-size:22px;margin:0 0 12px}h2{font-size:17px;margin:28px 0 8px;padding-bottom:4px;border-bottom:1px solid #e2e8f0}h3{font-size:15px;margin:20px 0 6px}p{margin:8px 0}ul,ol{margin:8px 0 8px 22px}code{background:#f1f5f9;padding:1px 4px;border-radius:4px;font-size:12px}</style>${md(dec.decode(plain))}`;
+      blobUrl=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+      dl.style.display='none';view.src=blobUrl;
+    }else{
+      blobUrl=URL.createObjectURL(new Blob([plain],{type:it.mime}));
+      view.src='about:blank';
+      $('dl-title').textContent=it.title;$('dl-info').textContent=`${it.name} · ${fmt(it.size)} · 브라우저에서 바로 볼 수 없는 형식입니다.`;
+      const a=$('dl-link');a.href=blobUrl;a.download=it.name;dl.style.display='flex';
     }
-  } catch (e) { alert('복호화 실패: ' + e.message); }
-  finally { $('busy').style.display = 'none'; }
+  }catch(e){alert('복호화 실패: '+e.message);}
+  finally{$('busy').style.display='none';}
 }
 
 // 최소 마크다운 렌더러 (제목·표·목록·인용·굵게·링크)
-function md(src) {
-  const lines = src.replace(/\r/g,'').split('\n'); let out = [], i = 0;
-  const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
-  while (i < lines.length) {
-    const l = lines[i];
-    if (/^#{1,6} /.test(l)) { const n = l.match(/^#+/)[0].length; out.push(`<h${n}>${inline(l.slice(n+1))}</h${n}>`); i++; continue; }
-    if (/^\|/.test(l)) { const rows = []; while (i < lines.length && /^\|/.test(lines[i])) rows.push(lines[i++]);
-      const cells = r => r.replace(/^\||\|$/g,'').split('|').map(c => inline(c.trim()));
-      let t = '<table><thead><tr>' + cells(rows[0]).map(c=>`<th>${c}</th>`).join('') + '</tr></thead><tbody>';
-      for (const r of rows.slice(2)) t += '<tr>' + cells(r).map(c=>`<td>${c}</td>`).join('') + '</tr>';
-      out.push(t + '</tbody></table>'); continue; }
-    if (/^> /.test(l)) { out.push(`<blockquote>${inline(l.slice(2))}</blockquote>`); i++; continue; }
-    if (/^(-|\d+\.) /.test(l)) { const ol = /^\d/.test(l); const tag = ol?'ol':'ul'; let t = `<${tag}>`;
-      while (i < lines.length && /^(-|\d+\.) /.test(lines[i])) t += `<li>${inline(lines[i++].replace(/^(-|\d+\.) /,''))}</li>`;
-      out.push(t + `</${tag}>`); continue; }
-    if (/^---+$/.test(l)) { out.push('<hr>'); i++; continue; }
-    if (!l.trim()) { i++; continue; }
-    let p = [l]; i++; while (i < lines.length && lines[i].trim() && !/^(#|\||>|-|\d+\.|---)/.test(lines[i])) p.push(lines[i++]);
+function md(src){
+  const lines=src.replace(/\r/g,'').split('\n');let out=[],i=0;
+  const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`(.+?)`/g,'<code>$1</code>').replace(/\[(.+?)\]\((.+?)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  while(i<lines.length){
+    const l=lines[i];
+    if(/^#{1,6} /.test(l)){const n=l.match(/^#+/)[0].length;out.push(`<h${n}>${inline(l.slice(n+1))}</h${n}>`);i++;continue;}
+    if(/^\|/.test(l)){const rows=[];while(i<lines.length&&/^\|/.test(lines[i]))rows.push(lines[i++]);
+      const cells=r=>r.replace(/^\||\|$/g,'').split('|').map(c=>inline(c.trim()));
+      let t='<table><thead><tr>'+cells(rows[0]).map(c=>`<th>${c}</th>`).join('')+'</tr></thead><tbody>';
+      for(const r of rows.slice(2))t+='<tr>'+cells(r).map(c=>`<td>${c}</td>`).join('')+'</tr>';
+      out.push(t+'</tbody></table>');continue;}
+    if(/^> /.test(l)){out.push(`<blockquote>${inline(l.slice(2))}</blockquote>`);i++;continue;}
+    if(/^(-|\d+\.) /.test(l)){const tag=/^\d/.test(l)?'ol':'ul';let t=`<${tag}>`;
+      while(i<lines.length&&/^(-|\d+\.) /.test(lines[i]))t+=`<li>${inline(lines[i++].replace(/^(-|\d+\.) /,''))}</li>`;
+      out.push(t+`</${tag}>`);continue;}
+    if(/^---+$/.test(l)){out.push('<hr>');i++;continue;}
+    if(!l.trim()){i++;continue;}
+    let p=[l];i++;while(i<lines.length&&lines[i].trim()&&!/^(#|\||>|-|\d+\.|---)/.test(lines[i]))p.push(lines[i++]);
     out.push(`<p>${inline(p.join(' '))}</p>`);
   }
   return out.join('\n');
 }
-const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const fmt = n => n > 1e6 ? (n/1e6).toFixed(1)+' MB' : n > 1e3 ? Math.round(n/1e3)+' KB' : n+' B';
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>n>1e6?(n/1e6).toFixed(1)+' MB':n>1e3?Math.round(n/1e3)+' KB':n+' B';
 </script>
 </body>
 </html>
