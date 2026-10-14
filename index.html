@@ -4,91 +4,89 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>결핵 AI 공동연구 기밀 문서함</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<title>TB 공동연구 기밀 문서함</title>
 <style>
-:root{--bg:#fbfbfd;--paper:#fff;--ink:#1b1d24;--mute:#6b6f7c;--line:#e6e7ee;--blue:#5170FF;--blue2:#eaeeff;--red:#c0392b;--amber2:#fff4dc;--amber:#8a5a00}
-*{box-sizing:border-box}
-html,body{margin:0;height:100%}
-body{background:var(--bg);color:var(--ink);font-family:'DM Sans','Noto Sans KR',sans-serif;font-size:14px;line-height:1.6}
-.serif{font-family:'DM Serif Display','Noto Sans KR',serif;font-weight:400}
-.kicker{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:600}
-button{font:inherit;cursor:pointer}
-/* 로그인 */
-#gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;background:var(--bg)}
-#gate form{width:100%;max-width:400px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 28px}
-#gate h1{font-size:26px;margin:6px 0 8px;line-height:1.25}
-#gate p{color:var(--mute);font-size:13px;margin:0 0 18px}
-#gate input{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:#fff}
-#gate input:focus{outline:2px solid var(--blue);outline-offset:1px}
-#gate .row{display:flex;justify-content:flex-end;margin-top:12px}
-#gate .primary{background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:4px;padding:8px 18px;font-weight:600}
-#gate .primary:disabled{opacity:.5}
-.err{color:var(--red);font-size:12.5px;min-height:18px;margin-top:8px}
-/* 본문 */
-#app{display:none;height:100%}
-#app.on{display:grid;grid-template-columns:300px 1fr;grid-template-rows:56px 1fr}
-header{grid-column:1/3;display:flex;align-items:center;gap:14px;padding:0 22px;border-bottom:1px solid var(--line);background:var(--paper)}
-header h1{font-size:19px;margin:0}
-header .meta{color:var(--mute);font-size:12.5px;margin-left:auto}
-header button{background:none;border:1px solid var(--line);border-radius:4px;padding:6px 12px;color:var(--ink)}
-header button:hover{border-color:var(--blue);color:var(--blue)}
-nav{border-right:1px solid var(--line);overflow:auto;padding:12px 0 24px;background:var(--paper)}
-nav .sec{font-size:11px;letter-spacing:.08em;color:var(--mute);font-weight:600;padding:16px 20px 6px}
-nav .item{display:block;width:100%;text-align:left;border:0;background:none;padding:8px 20px;line-height:1.4;color:var(--ink);border-left:3px solid transparent}
-nav .item:hover{background:#f4f6ff}
-nav .item.active{background:var(--blue2);border-left-color:var(--blue);color:var(--blue)}
-nav .item .name{display:block;font-size:11.5px;color:var(--mute)}
-main{position:relative;overflow:hidden;background:#fff}
-main iframe{width:100%;height:100%;border:0;background:#fff}
-#pdfbar{display:none;position:absolute;top:0;left:0;right:0;z-index:2;align-items:center;gap:10px;padding:6px 16px;background:var(--amber2);color:var(--amber);font-size:12.5px;border-bottom:1px solid #f1dfae}
-#pdfbar button{background:#fff;border:1px solid #d9b96a;border-radius:4px;padding:4px 10px;color:var(--amber);font-size:12px;font-weight:600}
-#empty,#dl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:var(--mute);background:var(--bg)}
-#dl{display:none}#dl b{color:var(--ink);font-size:16px}
-#dl button{background:var(--blue);color:#fff;border:1px solid var(--blue);border-radius:4px;padding:8px 16px;font-weight:600}
-#busy{position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue);display:none;animation:bar 1s linear infinite;z-index:3}
+:root{--bg:#f1f5f9;--side:#0f172a;--side-2:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--accent:#6366f1}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;background:var(--bg)}
+body{display:flex;height:100dvh;overflow:hidden}
+nav{flex:0 0 240px;background:var(--side);color:var(--text);display:flex;flex-direction:column;padding:18px 12px;gap:4px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 18px}
+.logo{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#4338ca,#0891b2);display:grid;place-items:center;font-weight:800;font-size:12px;color:#fff}
+.brand b{font-size:14px}.brand small{display:block;font-size:10px;color:var(--muted)}
+.sec{font-size:10px;color:var(--muted);letter-spacing:.06em;padding:12px 10px 6px}
+nav button.item{display:block;width:100%;text-align:left;font:inherit;color:var(--text);background:none;border:0;padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;cursor:pointer}
+nav button.item:hover{background:var(--side-2)}
+nav button.item.active{background:var(--accent);color:#fff;font-weight:700}
+nav button.item .name{display:block;font-size:10px;color:var(--muted);font-weight:400}
+nav button.item.active .name{color:#e0e7ff}
+.tools{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding:8px 4px}
+.tools button{font:inherit;font-size:12px;font-weight:700;border:1px solid #334155;background:var(--side-2);color:var(--text);border-radius:8px;padding:8px 10px;cursor:pointer;text-align:left}
+.tools button:hover{border-color:var(--muted)}
+.tools .who{font-size:10px;color:var(--muted);padding:0 4px;line-height:1.5}
+main{flex:1;min-width:0;display:flex;flex-direction:column;position:relative}
+iframe{flex:1;border:0;width:100%;min-height:0;background:#fff}
+#pdfbar{display:none;align-items:center;gap:10px;padding:6px 14px;background:#fef3c7;color:#78350f;border-bottom:1px solid #fcd34d;font-size:12px}
+#pdfbar button{font:inherit;font-size:12px;font-weight:700;border:1px solid #d97706;background:#fff;color:#78350f;border-radius:8px;padding:4px 10px;cursor:pointer}
+#busy{position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);display:none;animation:bar 1s linear infinite}
 @keyframes bar{from{transform:scaleX(.1);transform-origin:left}50%{transform:scaleX(1)}to{transform:scaleX(.1);transform-origin:right}}
-@media(max-width:800px){
-  #app.on{grid-template-columns:1fr;grid-template-rows:56px auto 1fr}
-  nav{border-right:0;border-bottom:1px solid var(--line);max-height:38vh}
+#empty,#dl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:#475569;font-size:13px;background:var(--bg)}
+#dl{display:none}#dl b{color:#0f172a;font-size:15px}
+#dl button{font:inherit;font-size:12px;font-weight:700;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:8px 14px;cursor:pointer}
+dialog{margin:auto;border:0;border-radius:14px;padding:22px;width:min(440px,calc(100% - 32px));box-shadow:0 20px 50px rgba(15,23,42,.3);color:#0f172a}
+dialog::backdrop{background:rgba(15,23,42,.6)}
+dialog h2{font-size:16px;margin-bottom:6px}
+dialog p{font-size:12px;color:#475569;line-height:1.7;margin-bottom:12px}
+dialog input{width:100%;font:13px Consolas,monospace;padding:10px;border:1px solid #cbd5e1;border-radius:8px}
+dialog .row{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+dialog button{font:inherit;font-size:12px;font-weight:700;border:1px solid #cbd5e1;background:#fff;border-radius:8px;padding:8px 14px;cursor:pointer}
+dialog button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+dialog button:disabled{opacity:.5}
+dialog .err{color:#b91c1c;font-size:12px;margin-top:8px;min-height:1em}
+body:not(.open) nav,body:not(.open) main{visibility:hidden}
+@media(max-width:760px){
+ body{flex-direction:column}
+ nav{flex:none;flex-direction:row;align-items:center;padding:8px;gap:4px;overflow-x:auto}
+ .brand{padding:0 8px 0 4px}.brand div,.sec,.tools .who{display:none}
+ #items{display:flex;align-items:center;gap:4px}
+ nav button.item{white-space:nowrap;padding:7px 10px;width:auto}nav button.item .name{display:none}
+ .tools{margin:0 0 0 auto;flex-direction:row;padding:0}
 }
 </style>
 </head>
 <body>
+<dialog id="login">
+ <form method="dialog" id="login-form">
+  <h2>🔒 TB 공동연구 기밀 문서함</h2>
+  <p>대한결핵협회 × 마이허브 공동연구 내부 문서입니다. 문서는 암호화되어 있으며 비밀번호로 이 브라우저 안에서만 복호화됩니다.</p>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="비밀번호" aria-label="비밀번호" autofocus>
+  <div class="err" id="err" role="alert"></div>
+  <div class="row"><button type="submit" class="primary" id="go">열기</button></div>
+ </form>
+</dialog>
 
-<div id="gate">
-  <form id="login">
-    <div class="kicker">Confidential · 대한결핵협회 × 마이허브</div>
-    <h1 class="serif">결핵 AI 공동연구<br>기밀 문서함</h1>
-    <p>회의자료·계약·연구계획·IRB 서류. 문서는 암호화되어 있으며 비밀번호로 이 브라우저 안에서만 복호화된다.</p>
-    <input id="pw" type="password" autocomplete="current-password" placeholder="비밀번호" aria-label="비밀번호" autofocus>
-    <div class="err" id="err" role="alert"></div>
-    <div class="row"><button type="submit" class="primary" id="go">열기</button></div>
-  </form>
-</div>
-
-<div id="app">
-  <header>
-    <h1 class="serif">기밀 문서함</h1>
-    <span class="meta" id="meta"></span>
-    <button id="logout">닫기</button>
-  </header>
-  <nav id="list"></nav>
-  <main>
-    <div id="busy"></div>
-    <div id="pdfbar"><span>PDF가 표시되지 않으면 새 창에서 연다.</span><button id="pdf-open" type="button">새 창에서 열기</button></div>
-    <div id="empty">왼쪽 목록에서 문서를 선택한다.</div>
-    <div id="dl"><b id="dl-title"></b><span id="dl-info"></span><a id="dl-link"><button type="button">내려받기</button></a></div>
-    <iframe id="view" title="문서 보기" sandbox="allow-same-origin allow-scripts allow-popups allow-downloads" hidden></iframe>
-  </main>
-</div>
+<nav aria-label="문서 목록" id="list">
+ <div class="brand"><span class="logo">TB</span><div><b>기밀 문서함</b><small>대한결핵협회 × 마이허브</small></div></div>
+ <div id="items"></div>
+ <div class="tools">
+  <span class="who" id="meta"></span>
+  <button id="logout">🔒 닫기</button>
+ </div>
+</nav>
+<main>
+ <div id="busy"></div>
+ <div id="pdfbar"><span>PDF가 표시되지 않으면 새 탭에서 여세요.</span><button id="pdf-open" type="button">↗ 새 탭에서 열기</button></div>
+ <div id="empty">왼쪽 목록에서 문서를 선택하세요.</div>
+ <div id="dl"><b id="dl-title"></b><span id="dl-info"></span><a id="dl-link"><button>💾 내려받기</button></a></div>
+ <iframe id="view" title="문서 보기" sandbox="allow-same-origin allow-scripts allow-popups allow-downloads"></iframe>
+</main>
 
 <script>
 const $=id=>document.getElementById(id);
 const enc=new TextEncoder(),dec=new TextDecoder();
 let key=null,items=[],blobUrl=null;
 const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const ICON={'.html':'📄','.md':'📝','.pdf':'📕','.pptx':'📊','.xlsx':'📈','.docx':'📘','.hwp':'📘','.hwpx':'📘'};
 
 async function deriveKey(pw,salt,iter){
   const base=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']);
@@ -96,23 +94,25 @@ async function deriveKey(pw,salt,iter){
 }
 async function openBin(path,aad){
   const r=await fetch(path,{cache:'no-store'});
-  if(!r.ok)throw new Error('파일을 불러오지 못했다: '+path);
+  if(!r.ok)throw new Error('파일을 불러오지 못했습니다: '+path);
   const buf=new Uint8Array(await r.arrayBuffer());
   return crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(0,12),additionalData:enc.encode(aad)},key,buf.slice(12));
 }
 
-$('login').onsubmit=async e=>{
+$('login').showModal();
+$('login').addEventListener('cancel',e=>e.preventDefault());
+$('login-form').onsubmit=async e=>{
   e.preventDefault();$('err').textContent='';$('go').disabled=true;
   try{
     const p=await (await fetch('vault/params.json',{cache:'no-store'})).json();
     key=await deriveKey($('pw').value,b64(p.salt),p.iter);
     let m;
     try{m=JSON.parse(dec.decode(await openBin('vault/manifest.bin','manifest')));}
-    catch{key=null;throw new Error('비밀번호가 올바르지 않다.');}
+    catch{key=null;throw new Error('비밀번호가 올바르지 않습니다.');}
     items=m.items;
     $('meta').textContent=`${items.length}건 · 갱신 ${m.built}`;
     render();$('pw').value='';
-    $('gate').style.display='none';$('app').classList.add('on');
+    $('login').close();document.body.classList.add('open');
   }catch(err){$('err').textContent=err.message;}
   finally{$('go').disabled=false;}
 };
@@ -122,13 +122,13 @@ $('pdf-open').onclick=()=>{if(blobUrl)window.open(blobUrl,'_blank','noopener');}
 function render(){
   const groups={};
   items.forEach(it=>(groups[it.category]??=[]).push(it));
-  const nav=$('list');nav.innerHTML='';
+  const box=$('items');box.innerHTML='';
   for(const [cat,list] of Object.entries(groups)){
-    const h=document.createElement('div');h.className='sec';h.textContent=cat;nav.appendChild(h);
+    const h=document.createElement('span');h.className='sec';h.textContent=cat;box.appendChild(h);
     for(const it of list){
       const b=document.createElement('button');b.className='item';b.type='button';
-      b.innerHTML=`${esc(it.title)}<span class="name">${esc(it.name)} · ${fmt(it.size)}</span>`;
-      b.onclick=()=>open(it,b);nav.appendChild(b);
+      b.innerHTML=`${ICON[it.ext]||'📎'} ${esc(it.title)}<span class="name">${esc(it.name)} · ${fmt(it.size)}</span>`;
+      b.onclick=()=>open(it,b);box.appendChild(b);
     }
   }
 }
@@ -139,20 +139,19 @@ async function open(it,btn){
   try{
     const plain=await openBin(`vault/${it.id}.bin`,it.id);
     if(blobUrl)URL.revokeObjectURL(blobUrl);
-    const view=$('view'),dl=$('dl');
-    $('empty').style.display='none';
+    const view=$('view'),dl=$('dl');$('empty').style.display='none';
     $('pdfbar').style.display=it.ext==='.pdf'?'flex':'none';
     if(it.ext==='.html'||it.ext==='.pdf'){
       blobUrl=URL.createObjectURL(new Blob([plain],{type:it.ext==='.pdf'?'application/pdf':'text/html'}));
-      dl.style.display='none';view.hidden=false;view.src=blobUrl;
+      dl.style.display='none';view.src=blobUrl;
     }else if(it.ext==='.md'){
-      const html=`<!doctype html><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><style>body{font-family:'DM Sans','Noto Sans KR',sans-serif;color:#1b1d24;line-height:1.75;max-width:860px;margin:0 auto;padding:40px 28px;font-size:14.5px;background:#fbfbfd}h1,h2,h3{font-family:'DM Serif Display','Noto Sans KR',serif;font-weight:400}h1{font-size:28px;margin:0 0 14px}h2{font-size:20px;margin:32px 0 8px;padding-bottom:6px;border-bottom:1px solid #e6e7ee}h3{font-size:16px;margin:22px 0 6px}table{border-collapse:collapse;margin:12px 0;width:100%;background:#fff}td,th{border:1px solid #e6e7ee;padding:6px 10px;font-size:13.5px;vertical-align:top;text-align:left}th{background:#f4f6ff;font-weight:600}blockquote{border-left:3px solid #5170FF;margin:12px 0;padding:6px 14px;color:#6b6f7c;background:#fff}p{margin:8px 0}ul,ol{margin:8px 0 8px 22px}code{background:#eaeeff;padding:1px 5px;border-radius:3px;font-size:12.5px}hr{border:0;border-top:1px solid #e6e7ee;margin:24px 0}</style>${md(dec.decode(plain))}`;
+      const html=`<!doctype html><meta charset="utf-8"><style>body{font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;color:#0f172a;line-height:1.75;max-width:860px;margin:0 auto;padding:32px 24px;font-size:14px}table{border-collapse:collapse;margin:12px 0;width:100%}td,th{border:1px solid #e2e8f0;padding:6px 10px;font-size:13px;vertical-align:top}th{background:#f1f5f9;text-align:left}blockquote{border-left:3px solid #6366f1;margin:12px 0;padding:4px 14px;color:#475569;background:#f8fafc}h1{font-size:22px;margin:0 0 12px}h2{font-size:17px;margin:28px 0 8px;padding-bottom:4px;border-bottom:1px solid #e2e8f0}h3{font-size:15px;margin:20px 0 6px}p{margin:8px 0}ul,ol{margin:8px 0 8px 22px}code{background:#f1f5f9;padding:1px 4px;border-radius:4px;font-size:12px}</style>${md(dec.decode(plain))}`;
       blobUrl=URL.createObjectURL(new Blob([html],{type:'text/html'}));
-      dl.style.display='none';view.hidden=false;view.src=blobUrl;
+      dl.style.display='none';view.src=blobUrl;
     }else{
       blobUrl=URL.createObjectURL(new Blob([plain],{type:it.mime}));
-      view.hidden=true;view.src='about:blank';
-      $('dl-title').textContent=it.title;$('dl-info').textContent=`${it.name} · ${fmt(it.size)} · 브라우저에서 바로 볼 수 없는 형식이다.`;
+      view.src='about:blank';
+      $('dl-title').textContent=it.title;$('dl-info').textContent=`${it.name} · ${fmt(it.size)} · 브라우저에서 바로 볼 수 없는 형식입니다.`;
       const a=$('dl-link');a.href=blobUrl;a.download=it.name;dl.style.display='flex';
     }
   }catch(e){alert('복호화 실패: '+e.message);}
